@@ -9,8 +9,8 @@ if (!file.exists('ucihar.zip')) {
   downloadDate <- date()  
 }
 
-if (!dir.exists('UCI HAR Dataset') {
-  unzip(ucihar.zip)
+if (!dir.exists('UCI HAR Dataset')) {
+  unzip('ucihar.zip')
 }
 
 # Merges the training and the test sets to create one data set.
@@ -53,3 +53,5 @@ tidy1 <- tbl_df(bind_cols(merged[['subject']],merged[['y']],meanSd))
 tidy2 <- tidy1 %>% 
   group_by(activity,subject) %>% 
   summarise_each(funs(mean),3:81)
+
+write.table(tidy2,file='tidy_data_set.txt',row.names=FALSE)
