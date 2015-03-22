@@ -9,7 +9,7 @@ if (!file.exists('ucihar.zip')) {
   downloadDate <- date()  
 }
 
-if (!dir.exists('UCI HAR Dataset')) {
+if (!file.exists('UCI HAR Dataset')) {
   unzip('ucihar.zip')
 }
 
